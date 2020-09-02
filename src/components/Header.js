@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation  } from 'react-router-dom';
 import HeaderItem from './HeaderItem.js';
 
@@ -9,13 +9,23 @@ function Header(){
     let location = useLocation();
     const [textColor, setTextColor] = useState(String(location.pathname) !== "/" ? 'black' : 'white');
 
+    useEffect(() => {
+        if (String(location.pathname) !== "/"){
+            setTextColor('black');
+        }
+        else{
+            setTextColor('white');
+        }
+        
+    }, [location.pathname]);
+
     
 
 
 
     return(
         <header>
-            <nav className="p-4 flex justify-between items-center">
+            <nav className="p-4 flex justify-between items-end">
 
                 {/* left side of nav bar (name, video, software, about)*/}
                 <div className="flex items-center">
@@ -28,15 +38,15 @@ function Header(){
                         Colin Farmer
                     </Link>
             
-                    <button onClick={() => setTextColor('black')} className="pl-8 pr-4">
+                    <div onClick={() => setTextColor('black')} className="pl-8 pr-4">
                         <HeaderItem text="Video" loc="/video" color={textColor} />
-                    </button>
-                    <button onClick={() => setTextColor('black')} className="px-4">
+                    </div>
+                    <div onClick={() => setTextColor('black')} className="px-4">
                         <HeaderItem text="Software" loc="/software" color={textColor} onClick={() => setTextColor('black')} />
-                    </button>
-                    <button onClick={() => setTextColor('black')} className="px-4">
+                    </div>
+                    <div onClick={() => setTextColor('black')} className="px-4">
                         <HeaderItem text="About" loc="/about" color={textColor} onClick={() => setTextColor('black')}/>
-                    </button>
+                    </div>
                     
                 </div>
             </nav>
