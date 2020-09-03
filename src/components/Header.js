@@ -28,23 +28,23 @@ function Header(){
             <nav className="p-4">
 
                 {/* left side of nav bar (name, video, software, about)*/}
-                <div className="flex items-baseline">
+                <div className="sm:block md:flex lg:flex xl:flex items-baseline">
 
                     <Link 
                         to="/" 
-                        className={"font-bold text-xl text-" + textColor + " hover:text-gray-300 ml-4"}
+                        className={"font-bold text-xl text-" + textColor + " hover:text-gray-300 md:ml-4"}
                         onClick={() => setTextColor('white')}
                     >
                         Colin Farmer
                     </Link>
             
-                    <div onClick={() => setTextColor('black')} className="pl-8 pr-4">
+                    <div onClick={() => setTextColor('black')} className="md:pl-8 md:pr-4">
                         <HeaderItem text="Video" loc="/video" color={textColor} />
                     </div>
-                    <div onClick={() => setTextColor('black')} className="px-4">
+                    <div onClick={() => setTextColor('black')} className="md:px-4">
                         <HeaderItem text="Software" loc="/software" color={textColor} onClick={() => setTextColor('black')} />
                     </div>
-                    <div onClick={() => setTextColor('black')} className="px-4">
+                    <div onClick={() => setTextColor('black')} className="md:px-4">
                         <HeaderItem text="About" loc="/about" color={textColor} onClick={() => setTextColor('black')}/>
                     </div>
                     
