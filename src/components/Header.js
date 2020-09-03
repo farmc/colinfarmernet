@@ -25,10 +25,10 @@ function Header(){
 
     return(
         <header>
-            <nav className="p-4 flex justify-between items-end">
+            <nav className="p-4">
 
                 {/* left side of nav bar (name, video, software, about)*/}
-                <div className="flex items-center">
+                <div className="flex items-baseline">
 
                     <Link 
                         to="/" 

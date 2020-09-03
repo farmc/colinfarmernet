@@ -31,7 +31,7 @@ function VideoObject(info){
                     src={info.img} 
                     alt="" 
                     style={{zIndex: '-1'}} 
-                    className=""
+                    className="object-contain w-full"
                 />
             
             { info.textSide === "left" &&
