@@ -18,15 +18,39 @@ function VideoObject(info){
         leave: {opacity: 0, transform: 'translateX(-100%)'},
     });
     
-    
+    let movieInfo = 
+        <div className={"block absolute top-0 " + info.textSide + "-0 px-10 py-10 z-10 w-7/12"}>
+            <div className="text-4xl font-bold">
+                {info.title}
+            </div>
+            <div className="">
+                Role: {info.role}
+            </div>
+            <div className="text-xl pt-2" >
+                {info.description}
+            </div>
+        </div>
+
+    let mobileMovieInfo = 
+        <div className={"block absolute top-0 " + info.textSide + "-0 px-3 py-2 z-10 w-full"}>
+            <div className="font-bold">
+                {info.title}
+            </div>
+            <div className="text-xs">
+                Role: {info.role}
+            </div>
+            <div className="text-xs" >
+                {info.description}
+            </div>
+        </div>
 
     return(
         <div 
-            className={"relative text-white text-" + info.textSide + ""} 
+            className={"text-white text-" + info.textSide + " relative"} 
             onMouseOver={() => setShowText(true)}
             onMouseLeave={() => setShowText(false)} 
         >
-            <a href={info.link} target="_blank" rel="noopener noreferrer">
+            <a href={info.link} target="_blank" rel="noopener noreferrer" className="">
                 <img 
                     src={info.img} 
                     alt="" 
@@ -41,23 +65,14 @@ function VideoObject(info){
                         <animated.div
                             key={key}
                             style={props}
-                            className={"block absolute top-0 " + info.textSide + "-0 px-10 py-10 z-10 w-7/12"}
+                            className="hidden md:block absolute top-0 w-full"  
                         >
-                            {/*<div className="">*/}
-                                <div className="text-4xl font-bold">
-                                    {info.title}
-                                </div>
-                                <div className="">
-                                    Role: {info.role}
-                                </div>
-                                <div className="text-xl pt-2" >
-                                    {info.description}
-                                </div>
-                            {/*</div>*/}
+                            {movieInfo}
                         </animated.div>
                     )
                 
             }
+
 
             { info.textSide === "right" &&
                 
@@ -66,23 +81,19 @@ function VideoObject(info){
                         <animated.div
                             key={key}
                             style={props}
-                            className={"block absolute top-0 " + info.textSide + "-0 px-10 py-10 z-10 w-7/12"}
+                            className="hidden md:block absolute top-0 w-full"
                         >
-                            {/*<div className="">*/}
-                                <div className="text-4xl font-bold">
-                                    {info.title}
-                                </div>
-                                <div className="">
-                                    Role: {info.role}
-                                </div>
-                                <div className="text-xl pt-2" >
-                                    {info.description}
-                                </div>
-                            {/*</div>*/}
+                            {movieInfo}
                         </animated.div>
                     )
                 
             }
+
+            <div className="md:hidden w-full absolute top-0">
+                {mobileMovieInfo}
+            </div>
+
+
             
 
             </a>

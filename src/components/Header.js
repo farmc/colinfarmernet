@@ -3,6 +3,7 @@ import { Link, useLocation  } from 'react-router-dom';
 import HeaderItem from './HeaderItem.js';
 import menuwhite from '../images/menuwhite.png'
 import menublack from '../images/menublack.png'
+import {useTransition, animated} from 'react-spring';
 
 function Header(){
 
@@ -29,28 +30,29 @@ function Header(){
     //nav bar menu
     let mdmenu =  
         <div className="md:flex">
-            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex px-2 md:pl-8 md:pr-4">
+            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex md:px-2 md:pl-8 md:pr-4">
                 <HeaderItem text="Video" loc="/video" color={textColor} />
             </div>
-            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex px-2 md:pl-8 md:pr-4">
+            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex md:px-2 md:pl-8 md:pr-4">
                 <HeaderItem text="Software" loc="/software" color={textColor} onClick={() => setTextColor('black')} />
             </div>
-            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex px-2 md:pl-8 md:pr-4">
+            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex md:px-2 md:pl-8 md:pr-4">
                 <HeaderItem text="About" loc="/about" color={textColor} onClick={() => setTextColor('black')}/>
             </div>
         </div>
 
     //variable for mobile menu
-    let menu;
+    let menu = mdmenu;
 
-    //set if showMenu is activated
-    if(showMenu){
-        menu = mdmenu
-    }
-
-    
     //variable for switching between black/white menu bar pngs
     let menucolor = (textColor === "white" ? menuwhite : menublack);
+
+    //set up menu transition
+    const menuTrans = useTransition(showMenu, null, {
+        from: {opacity: 0, transform: 'translateY(-100%)'},
+        enter: {opacity: 1, transform: 'translateY(0%)'},
+        leave: {opacity: 0, transform: 'translateY(-100%)'},
+    });
 
     
 
@@ -75,7 +77,19 @@ function Header(){
                         <div className="md:hidden inline-block right-0" onClick={() => setShowMenu(!showMenu) }>
                             <img className="h-8 w-8" src={menucolor} alt="Menu"/>
                         </div>
-                        {menu}
+
+                        {
+                            menuTrans.map(({item, key, props}) => 
+                                item&&
+                                <animated.div
+                                    key={key}
+                                    style={props}
+                                >
+                                    {menu}
+                                </animated.div>
+                            )
+                        }
+
                         <div className="hidden md:flex">
                             {mdmenu}
                         </div>
