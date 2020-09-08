@@ -8,9 +8,10 @@ import {useTransition, animated} from 'react-spring';
 function Header(){
 
 
-    //check location and set text color
+    //check location and set text and bg color
     let location = useLocation();
     const [textColor, setTextColor] = useState(String(location.pathname) !== "/" ? 'black' : 'white');
+    const [bgColor, setBgColor] = useState(String(location.pathname) !== "/" ? 'gray-700' : '');
 
     //Show menu on mobile devices
     const [showMenu, setShowMenu] = useState(false);
@@ -18,10 +19,12 @@ function Header(){
     //check location for text color
     useEffect(() => {
         if (String(location.pathname) !== "/"){
-            setTextColor('black');
+            setTextColor('gray-100');
+            setBgColor('gray-700');
         }
         else{
             setTextColor('white');
+            setBgColor('');
         }
         
     }, [location.pathname]);
@@ -30,14 +33,14 @@ function Header(){
     //nav bar menu
     let mdmenu =  
         <div className="md:flex">
-            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex md:px-2 md:pl-8 md:pr-4">
+            <div onClick={() => {setShowMenu(false)}} className="md:flex md:pl-8 md:pr-4">
                 <HeaderItem text="Video" loc="/video" color={textColor} />
             </div>
-            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex md:px-2 md:pl-8 md:pr-4">
-                <HeaderItem text="Software" loc="/software" color={textColor} onClick={() => setTextColor('black')} />
+            <div onClick={() => {setShowMenu(false)}} className="md:flex md:px-4">
+                <HeaderItem text="Software" loc="/software" color={textColor} />
             </div>
-            <div onClick={() => {setTextColor('black'); setShowMenu(false)}} className="md:flex md:px-2 md:pl-8 md:pr-4">
-                <HeaderItem text="About" loc="/about" color={textColor} onClick={() => setTextColor('black')}/>
+            <div onClick={() => {setShowMenu(false)}} className="md:flex md:px-4">
+                <HeaderItem text="About" loc="/about" color={textColor} />
             </div>
         </div>
 
@@ -60,7 +63,7 @@ function Header(){
 
     return(
         <header>
-            <nav className="p-4">
+            <nav className={"p-4 bg-" + bgColor}>
 
                 {/* left side of nav bar (name, video, software, about)*/}
                 <div className="flex justify-between items-start md:justify-start md:items-baseline md:">

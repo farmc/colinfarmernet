@@ -13,6 +13,8 @@ import {
 
 
 function App() {
+
+
   return (
     <div>
          
@@ -20,21 +22,29 @@ function App() {
       <Router >
         <div className="relative min-h-screen App">
         <Header />  
-
-        <Switch>
-          <Route exact path = "/">
-            <Home className="overflow-hidden" />
-          </Route>
-          <Route path="/video">
-            <Video />
-          </Route>
-          <Route path="/software">
-            <Software />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-        </Switch>
+        
+          <Switch>
+            <Route exact path = "/">
+              <Home className="overflow-hidden" />
+            </Route>
+            <Route path="/video">
+              <div className="relative min-h-screen App bg-gray-700">
+                <Video />
+              </div>
+            </Route>
+            <Route path="/software">
+              <div className="relative min-h-screen App bg-gray-700">
+                <Software />
+              </div>
+            </Route>
+            <Route path="/about">
+              <div className="relative min-h-screen App bg-gray-700">
+                <About />
+              </div>
+            </Route>
+          </Switch>
+        
+        
 
         <Footer />
 

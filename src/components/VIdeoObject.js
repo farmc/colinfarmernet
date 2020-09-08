@@ -58,51 +58,41 @@ function VideoObject(info){
                     className="object-contain w-full"
                 />
             
-            { info.textSide === "left" &&
-                
-                    transLeft.map(({item, key, props}) =>
-                        item&&
-                        <animated.div
-                            key={key}
-                            style={props}
-                            className="hidden md:block absolute top-0 w-full"  
-                        >
-                            {movieInfo}
-                        </animated.div>
-                    )
-                
-            }
+                { info.textSide === "left" &&
+                    
+                        transLeft.map(({item, key, props}) =>
+                            item&&
+                            <animated.div
+                                key={key}
+                                style={props}
+                                className="hidden md:block absolute top-0 w-full"  
+                            >
+                                {movieInfo}
+                            </animated.div>
+                        )
+                    
+                }
 
 
-            { info.textSide === "right" &&
-                
-                    transRight.map(({item, key, props}) =>
-                        item&&
-                        <animated.div
-                            key={key}
-                            style={props}
-                            className="hidden md:block absolute top-0 w-full"
-                        >
-                            {movieInfo}
-                        </animated.div>
-                    )
-                
-            }
+                { info.textSide === "right" &&
+                    
+                        transRight.map(({item, key, props}) =>
+                            item&&
+                            <animated.div
+                                key={key}
+                                style={props}
+                                className="hidden md:block absolute top-0 w-full"
+                            >
+                                {movieInfo}
+                            </animated.div>
+                        )
+                    
+                }
 
-            <div className="md:hidden w-full absolute top-0">
-                {mobileMovieInfo}
-            </div>
-
-
-            
-
+                <div className="md:hidden w-full absolute top-0">
+                    {mobileMovieInfo}
+                </div>
             </a>
-            
-            
-            
-            
-            
-
         </div>
     )
 }
