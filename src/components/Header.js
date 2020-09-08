@@ -19,7 +19,7 @@ function Header(){
     //check location for text color
     useEffect(() => {
         if (String(location.pathname) !== "/"){
-            setTextColor('gray-100');
+            setTextColor('gray-100'); 
             setBgColor('gray-700');
         }
         else{

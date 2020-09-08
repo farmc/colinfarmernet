@@ -1,32 +1,34 @@
 import React from 'react';
 import SoftwareItem from './SoftwareItem.js'
-import mQuickPack from '../images/mquickpack.png'
 
 function Software(){
     return (
-        <div className="w-full h-full object-cover">
-            <div className="flex flex-wrap w-full">
-                <SoftwareItem
-                    name="MQuickPack"
-                    type="Chrome Extension"
-                    description="A Chrome Extension that allows students to easily backpack and register for classes at the Univseristy of Michigan."
-                    github=""
-                    img={mQuickPack}
-                    bgcolor="red-600"
-                    textSide="left"
-                    classLink="http://soloway.pbworks.com/w/page/133562256/MQuickPack"
-                />
-                <SoftwareItem
-                    name="colinfarmer.net"
-                    type="(Work in Progress) Personal Website"
-                    description="A React App to show off my video and software projects in style. Utilizes tailwindcss, React-Spring, and Amazon Amplify."
-                    github="https://github.com/farmerc0926/colinfarmernet"
-                    img=""
-                    bgcolor="blue-600"
-                    textSide="right"
-                />
-            </div>
+        
+        <div className="flex flex-wrap w-full pt-10 px-32">
+            <SoftwareItem
+                name="MQuickPack"
+                type="Chrome Extension"
+                description="Makes it easier for students to register classes at U of M."
+                github=""
+                tools="JavaScript"
+                classLink="http://soloway.pbworks.com/w/page/133562256/MQuickPack"
+            />
+            <SoftwareItem
+                name="colinfarmer.net"
+                type="Personal Website (WIP)"
+                description="A React App to show off my video and software projects in style."
+                tools="ReactJS Tailwindcss React-Spring"
+                github="https://github.com/farmerc0926/colinfarmernet"
+            />
+            <SoftwareItem
+                name="Soggy Cereal"
+                type="Website"
+                description="Writing so good you'll forget to eat your cereal."
+                tools="ReactJS TBD"
+                github=""
+            />
         </div>
+       
         
     )
 }
