@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import github from '../images/github.png'
+import {useSpring, animated} from 'react-spring';
 
 function SoftwareItem(info){
 
+    const [showMore, setShowMore] = useState(false);
+
+    const moreA = useSpring({
+        width: showMore ? '50%': '33%',
+        height: showMore ? '20rem' : '14rem'
+    });
+
     return(
-        <div className="relative
+        <animated.div className="relative
                         rounded-lg border-dashed border-4 border-gray-500  
                         text-white text-left 
-                        w-full md:w-3/12 p-4 mb-5 ml-5 mr-5"
+                        w-full md:w-1/3 p-4 mb-5 ml-5 mr-5 h-56"
+            style={moreA}
+            onMouseEnter ={() => setShowMore(true)}
+            onMouseLeave = {() => setShowMore(false)}
         >
             <div className="font-bold md:text-xl text-teal-400">
                 {info.name}
@@ -29,7 +40,7 @@ function SoftwareItem(info){
             </div>
             
             
-        </div>
+        </animated.div>
     )
 }
 

@@ -49,7 +49,7 @@ function Header(){
     let menu = mdmenu;
 
     //variable for switching between black/white menu bar pngs
-    let menucolor = (textColor === "white" ? menuwhite : menublack);
+    let menucolor = menuwhite;
 
     //set up menu transition
     const menuTrans = useTransition(showMenu, null, {

@@ -1,23 +1,17 @@
 import React, {useState} from 'react';
-import {useTransition, animated} from 'react-spring';
-//5934
+import {useTransition, useSpring, animated} from 'react-spring';
 
 function VideoObject(info){
 
+    //state and spring for text fade in
     const[showText, setShowText] = useState(false);
 
-    const transLeft = useTransition(showText, null, {
-        from: {opacity: 0, transform: 'translateX(0%)'},
-        enter: {opacity: 1, transform: 'translateX(0%)'},
-        leave: {opacity: 0, transform: 'translateX(0%)'},
-    });
+    const fade = useSpring({
+        opacity: showText ? 1 : 0
+    })
 
-    const transRight = useTransition(showText, null, {
-        from: {opacity: 0, transform: 'translateX(0%)'},
-        enter: {opacity: 1, transform: 'translateX(0%)'},
-        leave: {opacity: 0, transform: 'translateX(0%)'},
-    });
-    
+
+    //movie info for desktop and mobile devices
     let movieInfo = 
         <div className={"block absolute top-0 " + info.textSide + "-0 px-10 py-10 z-10 w-7/12"}>
             <div className="text-4xl font-bold">
@@ -57,37 +51,10 @@ function VideoObject(info){
                     style={{zIndex: '-1'}} 
                     className="object-contain w-full"
                 />
-            
-                { info.textSide === "left" &&
-                    
-                        transLeft.map(({item, key, props}) =>
-                            item&&
-                            <animated.div
-                                key={key}
-                                style={props}
-                                className="hidden md:block absolute top-0 w-full"  
-                            >
-                                {movieInfo}
-                            </animated.div>
-                        )
-                    
-                }
 
-
-                { info.textSide === "right" &&
-                    
-                        transRight.map(({item, key, props}) =>
-                            item&&
-                            <animated.div
-                                key={key}
-                                style={props}
-                                className="hidden md:block absolute top-0 w-full"
-                            >
-                                {movieInfo}
-                            </animated.div>
-                        )
-                    
-                }
+                <animated.div className="hidden md:block absolute top-0 w-full" style={fade}>
+                    {movieInfo}
+                </animated.div>
 
                 <div className="md:hidden w-full absolute top-0">
                     {mobileMovieInfo}

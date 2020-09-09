@@ -1,12 +1,20 @@
 import React from 'react';
-import VideoObject from './VIdeoObject.js'
-import ghosts from '../images/Ghosts.jpg'
-import oneSmallStep from '../images/OneSmallStep.jpg'
-import whatIs from '../images/Whatis.jpg'
+import VideoObject from './VIdeoObject.js';
+import ghosts from '../images/Ghosts.jpg';
+import oneSmallStep from '../images/OneSmallStep.jpg';
+import whatIs from '../images/Whatis.jpg';
+import {useSpring, animated} from 'react-spring';
 
 function Video(){
+
+    const fade = useSpring({
+        from: {opacity: 0},
+        to: {opacity: 1},
+        config: {mass: 10}
+    });
+
     return (
-        <div>
+        <animated.div style={fade}>
             <div className="block items-center">
                 
                 <div className="">
@@ -38,7 +46,7 @@ function Video(){
                 </div>
 
             </div>
-        </div>
+        </animated.div>
     )
 }
 
