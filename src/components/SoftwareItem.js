@@ -7,7 +7,7 @@ function SoftwareItem(info){
         <div className="relative
                         rounded-lg border-dashed border-4 border-gray-500  
                         text-white text-left 
-                        w-full md:w-3/12 p-4 md:ml-auto md:mr-auto"
+                        w-full md:w-3/12 p-4 mb-5 ml-5 mr-5"
         >
             <div className="font-bold md:text-xl text-teal-400">
                 {info.name}

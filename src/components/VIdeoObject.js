@@ -7,15 +7,15 @@ function VideoObject(info){
     const[showText, setShowText] = useState(false);
 
     const transLeft = useTransition(showText, null, {
-        from: {opacity: 0, transform: 'translateX(100%)'},
+        from: {opacity: 0, transform: 'translateX(0%)'},
         enter: {opacity: 1, transform: 'translateX(0%)'},
-        leave: {opacity: 0, transform: 'translateX(100%)'},
+        leave: {opacity: 0, transform: 'translateX(0%)'},
     });
 
     const transRight = useTransition(showText, null, {
-        from: {opacity: 0, transform: 'translateX(-100%)'},
+        from: {opacity: 0, transform: 'translateX(0%)'},
         enter: {opacity: 1, transform: 'translateX(0%)'},
-        leave: {opacity: 0, transform: 'translateX(-100%)'},
+        leave: {opacity: 0, transform: 'translateX(0%)'},
     });
     
     let movieInfo = 

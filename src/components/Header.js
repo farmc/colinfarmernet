@@ -21,6 +21,7 @@ function Header(){
         if (String(location.pathname) !== "/"){
             setTextColor('gray-100'); 
             setBgColor('gray-700');
+            
         }
         else{
             setTextColor('white');
