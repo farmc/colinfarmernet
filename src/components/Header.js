@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation  } from 'react-router-dom';
 import HeaderItem from './HeaderItem.js';
 import menuwhite from '../images/menuwhite.png'
-import menublack from '../images/menublack.png'
 import {useTransition, animated} from 'react-spring';
 
 function Header(){
