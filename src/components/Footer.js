@@ -6,7 +6,7 @@ function Footer(){
     return(
         <footer className="flex text-xs p-4 absolute bottom-0 w-full justify-between text-white items-center">
             <div className="ml-3">
-                &copy; 2020
+                &copy; 2021
             </div>
             <div className="flex" >
                 <a href="http://www.linkedin.com/in/cfarm" target="_blank" rel="noopener noreferrer">
